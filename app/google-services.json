@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "482922708481",
+    "project_id": "exam-test-f2874",
+    "storage_bucket": "exam-test-f2874.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482922708481:android:6c63dec92dc892eebb0a00",
+        "android_client_info": {
+          "package_name": "com.example.finalexam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482922708481-jdvjh17lnd0l8pivcaek0uat33s5j566.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhSa75c3b2nKLUEmnSbKt9bCYvf2CfQeU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482922708481-jdvjh17lnd0l8pivcaek0uat33s5j566.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

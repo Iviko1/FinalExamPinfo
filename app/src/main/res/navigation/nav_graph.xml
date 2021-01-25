@@ -18,5 +18,7 @@
         android:id="@+id/navigation_data"
         tools:layout="@layout/user_fragment"
         android:name="com.example.finalexam.Fragments.user_Fragment"
-        android:label="Data" />
+        android:label="Data" >
+
+    </fragment>
 </navigation>
