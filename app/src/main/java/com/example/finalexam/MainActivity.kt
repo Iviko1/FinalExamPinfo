@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var root_layout : ConstraintLayout
+    //private lateinit var root_layout : ConstraintLayout
     private lateinit var loginButton : Button
     private lateinit var registrationButton : Button
     private lateinit var mAuth: FirebaseAuth
@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         mAuth = FirebaseAuth.getInstance()
+        supportActionBar?.hide()
 
         if (mAuth.currentUser != null){
             startActivity(Intent(this,NavigationActivity::class.java))
@@ -35,13 +36,13 @@ class MainActivity : AppCompatActivity() {
 
         loginEmail = findViewById(R.id.loginEmail)
         loginPassword = findViewById(R.id.loginPassword)
-        root_layout = findViewById(R.id.root_layout)
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        //root_layout = findViewById(R.id.root_layout)
+        //window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 
-        val animDrawable = root_layout.background as AnimationDrawable
-        animDrawable.setEnterFadeDuration(10)
-        animDrawable.setExitFadeDuration(5000)
-        animDrawable.start()
+        //val animDrawable = root_layout.background as AnimationDrawable
+        //animDrawable.setEnterFadeDuration(10)
+        //animDrawable.setExitFadeDuration(5000)
+        //animDrawable.start()
 
         registrationButton = findViewById(R.id.registrationButton)
         loginButton = findViewById(R.id.loginButton)
@@ -65,7 +66,6 @@ class MainActivity : AppCompatActivity() {
         }
         registrationButton.setOnClickListener {
             startActivity(Intent(this,RegisterActivity::class.java))
-            finish()
         }
 
 

@@ -22,6 +22,7 @@ class NavigationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_navigation)
         mAuth = FirebaseAuth.getInstance()
         db = FirebaseDatabase.getInstance().getReference("UserInfo")
+        supportActionBar?.hide()
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
         val navController = findNavController(R.id.nav_host_fragment)

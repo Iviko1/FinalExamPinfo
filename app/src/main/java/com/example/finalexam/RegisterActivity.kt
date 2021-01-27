@@ -24,6 +24,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         mAuth = FirebaseAuth.getInstance()
+        supportActionBar?.hide()
 
         registration_layout = findViewById(R.id.registration_layout)
 
@@ -45,9 +46,9 @@ class RegisterActivity : AppCompatActivity() {
             val password2 = inputPassword2.text.toString()
 
             if (email.isEmpty() || password.isEmpty() || password2.isEmpty()){
-                Toast.makeText(this, "Please Fill All Boxes", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please Fill All Boxes", Toast.LENGTH_LONG).show()
             } else if(password != password2) {
-                Toast.makeText(this, "Both Passwords Must Be Identical", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Both Passwords Must Be Identical", Toast.LENGTH_LONG).show()
             } else {
                 mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener { task ->
                     if (task.isSuccessful) {

@@ -28,6 +28,9 @@ class user_Fragment:Fragment(R.layout.user_fragment) {
     private lateinit var db: DatabaseReference
     private lateinit var userNameText: TextView
     private lateinit var userPicture: ImageView
+
+
+
     private lateinit var navController: NavController
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,9 +44,11 @@ class user_Fragment:Fragment(R.layout.user_fragment) {
         navController = Navigation.findNavController(view)
         signOutButton = view.findViewById(R.id.signOutButton)
 
+
+
         signOutButton.setOnClickListener {
             mAuth.signOut()
-            val intent = Intent(getActivity(), MainActivity::class.java)
+            val intent = Intent(activity, MainActivity::class.java)
             startActivity(intent)
             activity?.finish()
         }
@@ -56,7 +61,7 @@ class user_Fragment:Fragment(R.layout.user_fragment) {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val p = snapshot.getValue(UserInfo::class.java)
 
-                    if (p != null) {
+                    if (p != null && activity != null) {
                         userNameText.text = p.name
 
                         Glide.with(this@user_Fragment)

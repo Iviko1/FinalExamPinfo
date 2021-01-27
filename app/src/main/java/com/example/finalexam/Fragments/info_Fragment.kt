@@ -16,8 +16,10 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 class info_Fragment: Fragment(R.layout.info_fragment) {
+
     private lateinit var userNameInput : EditText
     private lateinit var userUrlInput : EditText
+
     private lateinit var saveButton: Button
     private lateinit var db: DatabaseReference
     private lateinit var mAuth: FirebaseAuth
@@ -27,18 +29,18 @@ class info_Fragment: Fragment(R.layout.info_fragment) {
         super.onViewCreated(view, savedInstanceState)
         mAuth = FirebaseAuth.getInstance()
         db = FirebaseDatabase.getInstance().getReference("UserInfo")
+
         userNameInput = view.findViewById(R.id.personName)
         userUrlInput = view.findViewById(R.id.personPicture)
         saveButton = view.findViewById(R.id.saveButton)
-
-
-        val activity = getActivity()
 
 
         saveButton.setOnClickListener {
 
             val name = userNameInput.text.toString()
             val url = userUrlInput.text.toString()
+
+
             val personInfo = UserInfo(name,url)
 
             if (mAuth.currentUser?.uid != null) {
@@ -47,6 +49,7 @@ class info_Fragment: Fragment(R.layout.info_fragment) {
                         Toast.makeText(activity,"Operation Successful",Toast.LENGTH_SHORT).show()
                         userNameInput.text = null
                         userUrlInput.text = null
+
                     }else{
                         Toast.makeText(activity,"Error!",Toast.LENGTH_SHORT).show()
                     }
