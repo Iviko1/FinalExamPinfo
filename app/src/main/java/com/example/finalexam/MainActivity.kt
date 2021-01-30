@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var loginEmail : EditText
     private lateinit var loginPassword : EditText
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -67,6 +68,8 @@ class MainActivity : AppCompatActivity() {
         registrationButton.setOnClickListener {
             startActivity(Intent(this,RegisterActivity::class.java))
         }
+
+
 
 
     }
