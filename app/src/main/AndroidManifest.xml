@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalExam">
+        <activity android:name=".RecyclerActivity"></activity>
         <activity android:name=".PasswordResetActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".RegisterActivity" />
