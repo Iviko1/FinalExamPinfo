@@ -42,7 +42,7 @@ class user_Fragment:Fragment(R.layout.user_fragment) {
         mAuth = FirebaseAuth.getInstance()
         db = FirebaseDatabase.getInstance().getReference("UserInfo")
 
-
+        val reference : DatabaseReference = FirebaseDatabase.getInstance().reference.child("Users")
         userNameText = view.findViewById(R.id.userNameText)
         userPicture = view.findViewById(R.id.userPicture)
         navController = Navigation.findNavController(view)
@@ -51,6 +51,16 @@ class user_Fragment:Fragment(R.layout.user_fragment) {
 
         recyclerButton.setOnClickListener {
             val intent = Intent(activity, RecyclerActivity::class.java)
+            fun uploadList(view: View){
+                reference.setValue(userList).addOnCompleteListener { task ->
+                    if(task.isSuccessful){
+                        Toast.makeText(activity, "Success", Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(activity, "Error", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+            uploadList(view)
             startActivity(intent)
         }
 
@@ -62,6 +72,26 @@ class user_Fragment:Fragment(R.layout.user_fragment) {
             activity?.finish()
         }
         if (mAuth.currentUser?.uid != null) {
+
+            reference.child("Users").addListenerForSingleValueEvent(object: ValueEventListener{
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(activity, "Error", Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val d = snapshot.getValue(UserInfo::class.java)
+                    
+                    if(d != null && activity != null){
+                        //for (i in d) {
+                           // val name: String? = d.name
+                            //val url: String? = d.url
+                           // userList.add(i)
+                       //}
+                    }
+                }
+            })
+
+
             db.child(mAuth.currentUser?.uid!!).addValueEventListener(object : ValueEventListener {
                 override fun onCancelled(error: DatabaseError) {
                     Toast.makeText(activity, "Error!", Toast.LENGTH_SHORT).show()
@@ -93,6 +123,7 @@ class user_Fragment:Fragment(R.layout.user_fragment) {
             })
         }
     }
+
 }
 
 
