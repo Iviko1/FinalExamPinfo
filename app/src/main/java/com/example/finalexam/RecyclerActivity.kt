@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.finalexam.Fragments.user_Fragment
 import com.google.firebase.database.*
 
 class RecyclerActivity : AppCompatActivity() {
@@ -19,7 +18,7 @@ class RecyclerActivity : AppCompatActivity() {
         recycler = findViewById(R.id.recyclerView)
         db = FirebaseDatabase.getInstance().reference
 
-        val adapter =Adapter(user_Fragment.userList, this)
+        val adapter =Adapter(MainActivity.userList, this)
         recycler.adapter = adapter
         recycler.layoutManager = GridLayoutManager(this,1)
 

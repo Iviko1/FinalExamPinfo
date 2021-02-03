@@ -9,24 +9,20 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 
 class PasswordResetActivity : AppCompatActivity() {
-    private lateinit var button: Button
+    private lateinit var resetButton: Button
     private lateinit var inputEmail : EditText
     private lateinit var mAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_password_reset)
-
+        supportActionBar?.hide()
         mAuth = FirebaseAuth.getInstance()
 
-        //button = findViewById(R.id.resetButton)
+        resetButton = findViewById(R.id.resetButton)
         inputEmail = findViewById(R.id.inputEmail)
 
-
-
-
-        button.setOnClickListener {
+        resetButton.setOnClickListener {
             val email = inputEmail.text.toString()
-
             if (email.isEmpty()){
                 Toast.makeText(this, "Email Box Can't Be Empty", Toast.LENGTH_SHORT).show()
             } else {
@@ -39,9 +35,6 @@ class PasswordResetActivity : AppCompatActivity() {
                     }
                 }
             }
-
         }
-
-
     }
 }

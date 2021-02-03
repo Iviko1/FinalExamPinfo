@@ -24,7 +24,6 @@ class info_Fragment: Fragment(R.layout.info_fragment) {
     private lateinit var db: DatabaseReference
     private lateinit var mAuth: FirebaseAuth
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mAuth = FirebaseAuth.getInstance()
@@ -65,6 +64,5 @@ class info_Fragment: Fragment(R.layout.info_fragment) {
                 }
             }
         }
-
     }
 }

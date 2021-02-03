@@ -2,13 +2,10 @@ package com.example.finalexam
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.example.finalexam.Fragments.info_FragmentDirections
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -33,9 +30,6 @@ class NavigationActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appConfig)
         navView.setupWithNavController(navController)
-
-
-
 
     }
 }

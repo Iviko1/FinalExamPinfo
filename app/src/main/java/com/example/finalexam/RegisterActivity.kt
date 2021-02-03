@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 
 class RegisterActivity : AppCompatActivity() {
+
     private lateinit var mAuth: FirebaseAuth
     private lateinit var registration_layout : ConstraintLayout
     private lateinit var inputEmail : EditText
@@ -41,6 +42,7 @@ class RegisterActivity : AppCompatActivity() {
         registerButton = findViewById(R.id.registerButton)
 
         registerButton.setOnClickListener {
+
             val email = inputEmail.text.toString()
             val password = inputPassword.text.toString()
             val password2 = inputPassword2.text.toString()
@@ -59,8 +61,6 @@ class RegisterActivity : AppCompatActivity() {
                     }
                 }
             }
-
         }
-
     }
 }

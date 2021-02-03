@@ -32,7 +32,6 @@ class Adapter(private val info: List<UserInfo>,private val context: Context )
 
     override fun getItemCount(): Int = info.size
 
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val p = info[position]
         holder.textView.text = p.name
