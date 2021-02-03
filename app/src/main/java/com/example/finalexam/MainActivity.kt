@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     //private lateinit var root_layout : ConstraintLayout
     private lateinit var loginButton : Button
     private lateinit var registrationButton : Button
+
     private lateinit var mAuth: FirebaseAuth
     private lateinit var loginEmail : EditText
     private lateinit var loginPassword : EditText
@@ -54,6 +55,7 @@ class MainActivity : AppCompatActivity() {
 
         registrationButton = findViewById(R.id.registrationButton)
         loginButton = findViewById(R.id.loginButton)
+
 
 
         loginButton.setOnClickListener {

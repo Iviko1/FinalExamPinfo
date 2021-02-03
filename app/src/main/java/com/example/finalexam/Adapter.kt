@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
+
 class Adapter(private val info: List<UserInfo>,private val context: Context )
     :RecyclerView.Adapter<Adapter.ViewHolder>() {
 
@@ -17,6 +18,10 @@ class Adapter(private val info: List<UserInfo>,private val context: Context )
 
         val imageView2: ImageView = itemView.findViewById(R.id.imageView2)
         val textView: TextView = itemView.findViewById(R.id.nameTextView)
+        val ageTextView : TextView = itemView.findViewById(R.id.ageTextView)
+        val statusTextView : TextView = itemView.findViewById(R.id.statusTextView)
+        val hobbiesTextView : TextView = itemView.findViewById(R.id.hobbiesTextView)
+        val workTextView : TextView = itemView.findViewById(R.id.workTextView)
 
     }
 
@@ -31,11 +36,14 @@ class Adapter(private val info: List<UserInfo>,private val context: Context )
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val p = info[position]
         holder.textView.text = p.name
+        holder.ageTextView.text = p.age
+        holder.statusTextView.text = p.status
+        holder.hobbiesTextView.text = p.hobbies
+        holder.workTextView.text = p.work
         Glide.with(context)
             .load(p.url)
             .placeholder(R.drawable.ic_launcher_background)
             .centerCrop()
             .into(holder.imageView2)
     }
-
 }
