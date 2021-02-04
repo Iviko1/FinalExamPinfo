@@ -2,6 +2,7 @@ package com.example.finalexam
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -20,6 +21,7 @@ class NavigationActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         db = FirebaseDatabase.getInstance().getReference("UserInfo")
         supportActionBar?.hide()
+
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
         val navController = findNavController(R.id.nav_host_fragment)

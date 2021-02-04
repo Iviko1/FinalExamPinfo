@@ -2,6 +2,7 @@ package com.example.finalexam
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
@@ -15,6 +16,7 @@ class RecyclerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler)
         supportActionBar?.hide()
+
         recycler = findViewById(R.id.recyclerView)
         db = FirebaseDatabase.getInstance().reference
 

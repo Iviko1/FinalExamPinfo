@@ -26,6 +26,7 @@ class info_Fragment: Fragment(R.layout.info_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         mAuth = FirebaseAuth.getInstance()
         db = FirebaseDatabase.getInstance().getReference("UserInfo")
 
