@@ -27,7 +27,6 @@ class RegisterActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
         supportActionBar?.hide()
 
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
 
         inputEmail = findViewById(R.id.signUpEmail)
         inputPassword = findViewById(R.id.signUpPassword)
