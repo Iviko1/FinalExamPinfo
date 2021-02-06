@@ -49,7 +49,7 @@
         android:id="@+id/personName"
         android:layout_width="300dp"
         android:layout_height="45dp"
-        android:layout_marginTop="155dp"
+        android:layout_marginTop="192dp"
         android:background="@drawable/needback"
         android:ems="10"
         android:hint="Name/Surname"
