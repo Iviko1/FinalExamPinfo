@@ -28,9 +28,37 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         mAuth = FirebaseAuth.getInstance()
         supportActionBar?.hide()
-
+        val reference2 : DatabaseReference = FirebaseDatabase.getInstance().reference
         if (mAuth.currentUser != null){
             startActivity(Intent(this,NavigationActivity::class.java))
+            reference2.child("UserInfo").addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {
+                    return
+                }
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+
+                    snapshot.children.forEach {
+                        val x = it.getValue(UserInfo::class.java)
+                        val name = x?.name
+                        val url = x?.url
+                        val age = x?.age
+                        val status = x?.status
+                        val work = x?.work
+                        val hobbies = x?.hobbies
+                        var isInList: Boolean = false
+                        for (i in MainActivity.userList) {
+                            if (i.name == name && i.url == url && i.age == age && i.status == status && work == i.work && hobbies == i.hobbies) {
+                                isInList = true
+                            }
+                        }
+                        if (!isInList && name != null && url != null && age != null && status != null && work != null && hobbies != null) {
+                            MainActivity.userList.add(UserInfo(name, url, age, status, work, hobbies))
+                        }
+                    }
+
+                }
+            })
             finish()
         }
 
@@ -39,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         registrationButton = findViewById(R.id.registrationButton)
         loginButton = findViewById(R.id.loginButton)
         forgotButton = findViewById(R.id.forgotButton)
-        val reference2 : DatabaseReference = FirebaseDatabase.getInstance().reference
+
 
         forgotButton.setOnClickListener {
             intent = Intent(this,PasswordResetActivity::class.java)
